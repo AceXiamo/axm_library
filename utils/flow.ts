@@ -9,7 +9,7 @@ export const resetToDefaultNodeStyle = (nodes: GraphNode[]) => {
   nodes.forEach((node) => {
     node.style = {
       ...node.style,
-      border: '1px solid white',
+      border: '1px solid transparent',
     }
   })
 }
