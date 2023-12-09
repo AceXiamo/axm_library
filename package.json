@@ -14,5 +14,12 @@
     "nuxt": "^3.8.2",
     "vue": "^3.3.10",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^2.11.0",
+    "@pinia/nuxt": "^0.5.1",
+    "@vue-flow/core": "^1.26.0",
+    "@vueuse/motion": "^2.0.0",
+    "pinia": "^2.1.7"
   }
 }
