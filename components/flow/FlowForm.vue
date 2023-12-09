@@ -7,7 +7,7 @@
         <UInput v-model="flowStore.node.label" />
       </UFormGroup>
       <UFormGroup label="BackgroundColor">
-        <UInput v-model="flowStore.node.style.background" type="color" />
+        <!-- <UInput v-model="{}" type="color" /> -->
       </UFormGroup>
     </UForm>
   </div>
@@ -17,4 +17,3 @@
 import { useFlowStore } from '@/store/flowStore'
 const flowStore = useFlowStore()
 </script>
-
