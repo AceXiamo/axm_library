@@ -1,0 +1,32 @@
+@import '@vue-flow/core/dist/style.css';
+@import '@vue-flow/core/dist/theme-default.css';
+
+.flow-container {
+  background-image: radial-gradient(
+    closest-side,
+    #ffffff20 0%,
+    #ffffff20 20%,
+    transparent 20%,
+    transparent 100%
+  );
+  background-repeat: repeat;
+  background-size: 10px 10px;
+}
+
+:root {
+  --vf-node-bg: #fff;
+  --vf-node-text: #222;
+  --vf-connection-path: #b1b1b7;
+  --vf-handle: #555;
+}
+
+.vue-flow__node {
+  background: #ffffff80;
+  color: black;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid white;
+  box-sizing: border-box;
+  min-height: 32px;
+}
