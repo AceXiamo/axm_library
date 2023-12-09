@@ -2,22 +2,16 @@
   <VueFlow
     @nodesChange="save"
     @edgesChange="save"
-    @paneClick="
-      () => {
-        // hide form
-        motions['flow_form']?.leave(() => {
-          flowStore.node = {}
-        })
-        // clear selected style
-        resetToDefaultNodeStyle(nodes)
-        resetToDefaultEdgeStyle(edges)
-      }
-    "
+    @paneClick="paneClickHandle"
     v-model="elements"
     @nodeClick="nodeClick"
-  />
+  >
+    <template #node-custom="customNodeProps">
+      <FlowNode :data="customNodeProps"></FlowNode>
+    </template>
+  </VueFlow>
   <FlowForm
-    v-if="flowStore.node.id"
+    v-if="flowStore.showForm"
     v-motion="`flow_form`"
     :initial="{
       opacity: 0,
@@ -46,7 +40,6 @@
 import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { useFlowStore } from '@/store/flowStore'
 import {
-  nodeSelectStyleHandle,
   resetToDefaultNodeStyle,
   resetToDefaultEdgeStyle,
 } from '@/utils/flow'
@@ -57,8 +50,8 @@ const motions = useMotions()
 
 const nodeClick = (e: any) => {
   const { node } = e
-  nodeSelectStyleHandle(node, nodes.value, edges.value)
   flowStore.node = node
+  flowStore.showForm = true
 }
 
 const { addEdges, onConnect, onPaneReady, toObject, nodes, edges } =
@@ -70,15 +63,18 @@ const elements = ref<any>([
   {
     id: '1',
     label: 'node 1',
+    type: 'custom',
     position: { x: 100, y: 500 },
   },
   {
     id: '2',
+    type: 'custom',
     label: 'node 2',
     position: { x: 500, y: 400 },
   },
   {
     id: '3',
+    type: 'custom',
     label: 'node 3',
     position: { x: 500, y: 600 },
   },
@@ -95,10 +91,20 @@ const elements = ref<any>([
 ])
 
 onPaneReady(({ fitView }) => {
-  //
+  flowStore.nodes = nodes.value
+  flowStore.edges = edges.value
 })
 
 const save = () => {
   const data = toObject()
+}
+
+const paneClickHandle = () => {
+  flowStore.node = {}
+  motions['flow_form']?.leave(() => {
+    flowStore.showForm = false
+  })
+  resetToDefaultNodeStyle(nodes.value)
+  resetToDefaultEdgeStyle(edges.value)
 }
 </script>
