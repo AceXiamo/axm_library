@@ -20,7 +20,7 @@
   --vf-handle: #555;
 }
 
-.vue-flow__node {
+/* .vue-flow__node {
   background: #ffffff80;
   color: black;
   border-radius: 5px;
@@ -29,4 +29,4 @@
   border: 1px solid white;
   box-sizing: border-box;
   min-height: 32px;
-}
+} */
