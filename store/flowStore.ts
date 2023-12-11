@@ -2,7 +2,11 @@ import { defineStore } from 'pinia'
 import type { GraphEdge, GraphNode } from '@vue-flow/core'
 
 export const useFlowStore = defineStore('flow', () => {
-  const node = ref<any>()
+  const node = ref<any>({
+    data: {
+      bgColor: '#101827',
+    },
+  })
   const showForm = ref(false)
   const nodes = ref<GraphNode[]>([])
   const edges = ref<GraphEdge[]>([])
