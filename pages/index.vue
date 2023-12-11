@@ -1,6 +1,5 @@
 <template>
   <div class="w-screen h-screen flex bg-black/90 p-5">
-    <div class="flex-none w-[300px]"></div>
     <div class="flex-auto flex flex-col gap-3">
       <div class="flex justify-between">
         <UBreadcrumb :links="links" />
@@ -24,17 +23,17 @@ const autoSave = ref(true)
 
 const links = [
   {
-    label: "Home",
-    icon: "i-heroicons-home",
-    to: "/",
+    label: 'Home',
+    icon: 'i-heroicons-home',
+    to: '/',
   },
   {
-    label: "Navigation",
-    icon: "i-heroicons-square-3-stack-3d",
+    label: 'Navigation',
+    icon: 'i-heroicons-square-3-stack-3d',
   },
   {
-    label: "Breadcrumb",
-    icon: "i-heroicons-link",
+    label: 'Breadcrumb',
+    icon: 'i-heroicons-link',
   },
 ]
 </script>
