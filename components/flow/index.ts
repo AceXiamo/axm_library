@@ -81,4 +81,11 @@ export const flowData: FlowItem[] = [
       },
     ],
   },
+  {
+    id: `21`,
+    pid: '0',
+    label: 'node 21',
+    desc: '一段文字介绍/详情',
+    bgColor: '#101827'
+  }
 ]
