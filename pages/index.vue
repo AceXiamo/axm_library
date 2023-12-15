@@ -4,9 +4,9 @@
       <div class="flex justify-between">
         <UBreadcrumb :links="links" />
         <div class="flex items-center gap-5">
-          <div class="flex items-center gap-2">
-            <UCheckbox v-model="autoSave" name="autoSave" label="Autosave" />
-          </div>
+          <UButton size="xs" color="violet" variant="soft" @click="addTopNode"
+            >增加顶级节点</UButton
+          >
         </div>
       </div>
       <div class="flow-container flex-auto relative">
@@ -18,7 +18,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="tsx" setup>
+import Dialog from '@/components/Dialog'
 const autoSave = ref(true)
 
 const links = [
@@ -36,4 +37,16 @@ const links = [
     icon: 'i-heroicons-link',
   },
 ]
+
+function DialogContent() {
+  return <></>
+}
+
+const addTopNode = () => {
+  Dialog.init({
+    title: '新增顶级节点',
+    width: 500,
+    content: () => <DialogContent />,
+  })
+}
 </script>
